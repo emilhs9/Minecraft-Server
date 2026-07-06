@@ -1,0 +1,14 @@
+[
+  {
+    "uuid": "e8f2992c-5ecd-3ec2-931a-2088003fc32c",
+    "name": "si",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "4063b76d-95e0-3d11-908f-8cdcc37e7c6c",
+    "name": "Sir",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]

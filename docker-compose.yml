@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  minecraft:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ad-dream-server
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+      - "19132:19132/udp"
+    volumes:
+      - ./data:/server
+      - ./save:/server/save
+      - ./logs:/server/logs
+    environment:
+      - MEMORY=6G
+      - TZ=Asia/Baku
+      - EULA=TRUE
+    deploy:
+      resources:
+        limits:
+          memory: 7G
+        reservations:
+          memory: 6G
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  tunnel:
+    image: ghcr.io/playit-gg/playit-agent:latest
+    container_name: ad-dream-tunnel
+    restart: unless-stopped
+    volumes:
+      - ./playit:/root/.local/share/playit
+    environment:
+      - TZ=Asia/Baku
+    command: ["run"]
+    depends_on:
+      - minecraft
+    network_mode: "host"
+
+  backup:
+    image: alpine:latest
+    container_name: ad-dream-backup
+    restart: unless-stopped
+    volumes:
+      - ./data:/server
+      - ./save:/save
+    environment:
+      - TZ=Asia/Baku
+    command: >
+      sh -c "echo '#!/bin/sh' > /backup.sh &&
+             echo 'while true; do' >> /backup.sh &&
+             echo '  DATE=$(date +%%Y-%%m-%%d)' >> /backup.sh &&
+             echo '  if [ ! -d /save/$DATE ]; then' >> /backup.sh &&
+             echo '    mkdir -p /save/$DATE' >> /backup.sh &&
+             echo '    cp -r /server/world /save/$DATE/' >> /backup.sh &&
+             echo '    cp -r /server/world_nether /save/$DATE/' >> /backup.sh &&
+             echo '    cp -r /server/world_the_end /save/$DATE/' >> /backup.sh &&
+             echo '    cp /server/server.properties /save/$DATE/' >> /backup.sh &&
+             echo '    cp /server/purpur.yml /save/$DATE/' >> /backup.sh &&
+             echo '    find /save -maxdepth 1 -type d -mtime +7 -exec rm -rf {} +' >> /backup.sh &&
+             echo '    echo \"Backup completed: $DATE\"' >> /backup.sh &&
+             echo '  fi' >> /backup.sh &&
+             echo '  sleep 86400' >> /backup.sh &&
+             echo 'done' >> /backup.sh &&
+             chmod +x /backup.sh &&
+             /backup.sh"
+    depends_on:
+      - minecraft

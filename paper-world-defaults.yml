@@ -1,0 +1,264 @@
+#Paper World Defaults (Purpur 1.21.4)
+#Performance Optimized
+
+_version: 31
+
+anticheat:
+  anti-xray:
+    enabled: true
+    mode: ENGINE
+    max-chunk-section-index: 3
+    update-radius: 2
+    lava-obfuscation:
+      disabled-blocks: []
+      disabled-worlds: []
+      use-downsampling: false
+      use-layer-height: false
+
+chunks:
+  auto-save-interval: 6000
+  delay-chunk-unloads-by: 10s
+  entity-per-chunk-save-limit:
+    arrow: 16
+    ender_pearl: 8
+    experience_orb: 16
+    fireball: 8
+    firework_rocket: 8
+    llama_spit: 8
+    shulker_bullet: 8
+    small_fireball: 8
+    snowball: 8
+  entity-activation-range:
+    animals: 16
+    axolotls: 8
+    containers: 8
+    disable-mob-spawner-spawn-activation: false
+    flying-monsters: 24
+    villagers: 16
+    villagers-work-immunity-after: 100
+    villagers-work-for: 20
+    villagers-active-for-panic: true
+    monsters: 24
+    misc: 8
+    raiders: 32
+    tick-inactive-villagers: true
+    water: 8
+    wake-up-inactive:
+      animals-max-per-tick: 4
+      animals-every: 1200
+      animals-for: 100
+      flying-monsters-max-per-tick: 8
+      flying-monsters-every: 200
+      flying-monsters-for: 100
+      monsters-max-per-tick: 8
+      monsters-every: 400
+      monsters-for: 100
+      villagers-max-per-tick: 4
+      villagers-every: 600
+      villagers-for: 100
+  fixed-chunk-inhabited-time: -1
+  max-auto-save-chunks-per-tick: 8
+  prevent-moving-into-unloaded-chunks: true
+
+collisions:
+  allow-player-cramming-damage: false
+  allow-vehicle-collisions: true
+  fix-climbing-bypassing-cramming-rule: true
+  max-entity-collisions: 4
+  only-players-collide: false
+
+environment:
+  disable-explosion-knockback: false
+  disable-ice-and-snow: false
+  disable-teleportation-suffocation-check: false
+  disable-thunder: false
+  fire-tick-delay: 30
+  frosted-ice-delay: 40
+  generate-flat-bedrock: false
+  nether-ceiling-void-damage-height: disabled
+  optimize-explosions: true
+  portal-create-radius: 16
+  portal-search-radius: 128
+  portal-search-vanilla-dimension-scaling: true
+  treasure-maps:
+    enabled: true
+    find-already-discovered:
+      loot-tables: default
+      villager-trade: false
+  water-over-lava-flow-speed: 5
+
+fixes:
+  disable-unloaded-chunk-enderpearl-exploit: true
+  falling-block-height-nerf: disabled
+  fix-curing-zombie-villager-discount-exploit: true
+  fix-items-merging-through-walls: false
+  prevent-tnt-from-moving-in-water: false
+  split-overstacked-loot: true
+  tnt-entity-height-nerf: disabled
+
+hopper:
+  cooldown-when-full: 1
+  disable-move-event: false
+  ignore-block-updates: false
+
+loot-tables:
+  seed: 0
+
+maps:
+  item-frame-cursor-limit: 128
+  item-frame-cursor-update-interval: 10
+
+max-growth-height:
+  bamboo:
+    max: 16
+    min: 11
+  cactus: 3
+  reeds: 3
+
+misc:
+  disable-end-credits: false
+  disable-relative-projectile-velocity: false
+  disable-sprint-interruption-on-attack: false
+
+entities:
+  armor-stands:
+    do-collision-entity-lookups: false
+    tick: false
+  behavior:
+    baby-zombie-movement-modifier: 0.5
+    disable-chest-cat-detection: true
+    disable-chest-creature-detection: true
+    disable-creeper-lingering-effect: false
+    disable-player-crits: false
+    door-close-damage-delay: 10
+    ender-dragons-death-always-places-dragon-egg: false
+    experience-merge-max-value: -1
+    mobs-can-always-pick-up-loot:
+      skeletons: false
+      zombies: false
+    nerf-pigmen-from-nether-portals: false
+    parrots-are-unaffected-by-player-movement: false
+    phantoms-do-not-spawn-on-creative-players: false
+    pillager-patrols:
+      disable: false
+      spawn-chance: 0
+      spawn-delay: 12000
+      start: 5
+    piglins-guard-chests: true
+    should-remove-dragon: false
+    zombie-villager-infection-chance: default
+    zombies-target-turtle-eggs: true
+  entities-target-with-follow-range: false
+  mob-effects:
+    immune-to-wither-effect:
+      wither: true
+      wither-skeleton: true
+    spiders-immune-to-poison-effect: true
+  spawning:
+    all-chunks-are-slime-chunks: false
+    alt-item-despawn-rate:
+      enabled: true
+      items:
+        cobblestone: 300
+        netherrack: 300
+        sand: 300
+        red_sand: 300
+        gravel: 300
+        dirt: 300
+        short_grass: 300
+        pumpkin: 300
+        melon_slice: 300
+        cactus: 300
+        sugar_cane: 300
+        twisting_vines: 300
+        weeping_vines: 300
+        oak_leaves: 300
+        spruce_leaves: 300
+        birch_leaves: 300
+        jungle_leaves: 300
+        acacia_leaves: 300
+        dark_oak_leaves: 300
+        mangrove_leaves: 300
+        cherry_leaves: 300
+    counts-all-mobs-for-spawning: false
+    creative-arrow-despawn-rate: 600
+    despawn-ranges:
+      ambient:
+        hard: 72
+        soft: 30
+      axolotls:
+        hard: 72
+        soft: 30
+      creature:
+        hard: 72
+        soft: 30
+      misc:
+        hard: 72
+        soft: 30
+      monster:
+        hard: 72
+        soft: 30
+      underground_water_creature:
+        hard: 72
+        soft: 30
+      water_ambient:
+        hard: 64
+        soft: 28
+      water_creature:
+        hard: 64
+        soft: 28
+    disable-mob-spawner-spawn-activation: false
+    disable-villager-trade-limits: false
+    duplicate-uuid:
+      mode: SAFE_REGEN
+      safe-regen-delete-range: 32
+    filter-bad-tile-entity-nbt-from-falling-blocks: true
+    filtered-entity-tag-nbt-paths:
+      - Pos
+      - Motion
+      - SleepingX
+      - SleepingY
+      - SleepingZ
+    iron-golems-can-spawn-in-air: false
+    monster-spawn-max-light-level: -1
+    non-player-arrow-despawn-rate: 200
+    per-player-mob-spawns: true
+    scan-for-legacy-ender-dragon: true
+    skeleton-horse-thunder-spawn-chance: disabled
+    slime-spawn-height:
+      slime-chunk:
+        maximum: 40.0
+      surface-biome:
+        maximum: 70.0
+        minimum: 50.0
+    wandering-trader:
+      spawn-chance-failure-increment: 25
+      spawn-chance-max: 75
+      spawn-chance-min: 25
+      spawn-day-length: 24000
+      spawn-minute-length: 1200
+    wateranimal-spawn-height:
+      maximum: 默认
+      minimum: 默认
+
+tick-rates:
+  behavior:
+    villager:
+      validatenearbypoi: -1
+  container-update: 1
+  dry-farmland: 1
+  grass-spread: 4
+  mob-spawner: 2
+  sensor:
+    villager:
+      secondarypoisensor: 80
+      nearestbedsensor: 80
+      nearestlivingentitysensor: 40
+      playersensor: 40
+      villagerbabiessensor: 40
+      villagerhostelessensor: 200
+      villagersecondarypoisensor: 200
+  wet-farmland: 1
+
+unsupported-settings:
+  fix-invulnerable-end-crystal-exploit: true

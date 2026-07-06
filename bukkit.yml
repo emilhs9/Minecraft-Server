@@ -1,0 +1,41 @@
+# Bukkit Configuration (Purpur 1.21.4)
+# Performance Optimized
+
+settings:
+  allow-end: true
+  warn-on-overload: true
+  permissions-file: permissions.yml
+  update-folder: plugins/update
+  plugin-profiling: false
+  connection-throttle: 4000
+  query-plugins: true
+  deprecated-verbose: default
+  shutdown-message: '&cServer is shutting down!'
+  minimum-api: none
+  use-map-color-cache: true
+
+spawn-limits:
+  monsters: 30
+  animals: 8
+  water-animals: 3
+  water-ambient: 10
+  water-underground-creature: 3
+  axolotls: 3
+  ambient: 8
+  misc: 128
+
+chunk-gc:
+  period-in-ticks: 400
+
+ticks-per:
+  animal-spawns: 400
+  monster-spawns: 400
+  water-spawns: 400
+  water-ambient-spawns: 400
+  water-underground-creature-spawns: 400
+  axolotl-spawns: 400
+  ambient-spawns: 400
+  autosave: 6000
+  misc: 1
+
+aliases: now-hierarchical-by-default
